@@ -1,0 +1,5 @@
+hardware.properties
+.idea/
+target/
+*.iml
+*.so
