@@ -1,0 +1,5 @@
+#!/bin/bash
+javah -classpath target/classes/ su.jake.hackrf.Hackrf
+
+clang -o libhackrf.o -fPIC -c su_jake_hackrf_Hackrf.c -I /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/include/ -I /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/include/darwin/ && clang -dynamiclib -o libhackrf.jnilib libhackrf.o ~/git/hackrf/host/build/libhackrf/src/libhackrf.dylib && java -Djava.library.path=. -classpath target/classes su.jake.hackrf.Hackrf
+
