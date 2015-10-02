@@ -185,7 +185,7 @@ int open_device()
 }
 
 int rx_callback(hackrf_transfer* transfer) {
-  printf("got data of size %d\n", transfer->valid_length);
+  /* printf("got data of size %d\n", transfer->valid_length); */
 
   if (callbackEnv == NULL) printf("callbackEnv was null.");
   jbyteArray byteArray = (*callbackEnv)->NewByteArray(callbackEnv, transfer->valid_length);

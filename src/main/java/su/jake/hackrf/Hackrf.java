@@ -25,7 +25,14 @@ public class Hackrf {
         result = Hackrf.startRx(new RxCallback() {
             @Override
             public void onData(byte[] data) {
-            System.out.println("onData()");
+                float[] floats = new float[data.length];
+                System.out.print("{");
+                for (int i=0; i<data.length; i++) {
+                    floats[i] = ((float)(data[i] & 0xff)) / 255f;
+                    System.out.print(String.format("%.2f, ", floats[i]));
+                }
+                System.out.print("}\n\n");
+                System.out.println("onData()");
             }
         });
         System.out.println(String.format("hackrf startRx: %d", result));
